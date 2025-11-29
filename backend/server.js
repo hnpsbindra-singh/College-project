@@ -9,34 +9,22 @@ dotenv.config();
 
 const app = express();
 
-// --- CORS (VERY IMPORTANT) ---
-const corsOptions = {
-  origin: [
-    "https://cabontiet.netlify.app", // your Netlify frontend
-    "http://localhost:5173"          // for local dev
-  ],
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // handle preflight
-
+app.use(cors());
 app.use(express.json());
 
-// --- DB CONNECT ---
+// --- MONGO CONNECTION ---
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("Mongo error:", err));
 
 // --- ROUTES ---
-app.get("/", (req, res) => {
-  res.send("CampusCab Backend Running");
-});
+app.use("/api/auth", authRoutes);
+app.use("/api/rides", rideRoutes);
 
-app.use("/auth", authRoutes);
-app.use("/rides", rideRoutes);
+app.get("/", (req, res) => {
+  res.send("CampusCab API is running");
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log("Server running on port", PORT));
