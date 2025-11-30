@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = ({ user, onLogout }) => {
   return (
     <header className="nav">
-      <div className="nav-logo">CampusCab @ Thapar</div>
+      <div className="nav-logo">Cab On Campus@ Thapar</div>
       <div className="nav-right">
         {user && (
           <>
@@ -21,3 +21,4 @@ const Navbar = ({ user, onLogout }) => {
 };
 
 export default Navbar;
+
