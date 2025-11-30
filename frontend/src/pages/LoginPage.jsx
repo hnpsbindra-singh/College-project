@@ -104,7 +104,7 @@ const LoginPage = ({ onLogin }) => {
     <div className="center-page">
       <div className="card auth-card">
         <h2 className="title">
-          {isRegister ? "Create Account" : "Login"} – Campus Cab
+          {isRegister ? "Create Account" : "Login"} – Cab On Campus
         </h2>
         <p className="subtitle">Thapar E-Rickshaw Service</p>
 
@@ -218,3 +218,4 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+
