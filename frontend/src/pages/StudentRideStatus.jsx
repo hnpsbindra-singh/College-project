@@ -64,7 +64,7 @@ const StudentRideStatus = () => {
                   className="btn btn-primary"
                   onClick={() => handlePayment("online")}
                 >
-                  Pay Online (₹10)
+                  Pay Online (₹10) On Mobile number of Driver
                 </button>
                 <button
                   className="btn btn-secondary"
@@ -90,3 +90,4 @@ const StudentRideStatus = () => {
 };
 
 export default StudentRideStatus;
+
